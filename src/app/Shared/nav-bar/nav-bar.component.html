@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbar-nav-header">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <button class="nav-link" href="/">Home</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <button class="nav-link" (click)="open(content)">Register</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Sign in</a>
+                    <button class="nav-link" href="blog.html">Sign in</button>
                 </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
@@ -31,3 +31,33 @@
         </div>
     </div>
 </nav>
+
+    <ng-template class="modal" #content let-modal>
+        <div class="modal-header">
+         <div > </div>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" #registration="ngForm">
+            <h4 class="modal-title" id="modal-basic-title">Registration</h4>
+              <div class="field"> 
+                  <label><i class="fas fa-envelope"></i> Email :</label>
+                   <input class="form-control" name="email" 
+                   required
+                   ngModel>
+             </div>
+      <div class="field">
+          <label> <i class="fas fa-key"></i>Password :</label>
+        <input  class="form-control" name="password" 
+        required
+        ngModel>
+      </div>
+      <p>Forgot password?</p>
+      <button type="submit" class="submit btn btn-primary" >Register </button>
+          </form>
+        </div>
+      </ng-template>
+
+  

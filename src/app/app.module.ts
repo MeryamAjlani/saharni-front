@@ -8,6 +8,8 @@ import { AccueilComponent } from './Components/accueil/accueil.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { TeamComponent } from './Components/team/team.component';
 import { PartiesComponent } from './Components/parties/parties.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PartiesComponent } from './Components/parties/parties.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
