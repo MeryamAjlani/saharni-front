@@ -16,6 +16,11 @@ export class AuthentificationService {
     return this.httpClient.post<any>(this.baseUrl+'login/',loginRequest)
   }
 
+    // call for authentication backend api with a registerRequest in parameter(email + motDePasse)
+    register(registerRequest) {    
+      return this.httpClient.post<any>(this.baseUrl+'register/',registerRequest)
+    }
+
   // call for authentication backend api with a loginRequest in parameter(username + motDePasse)
   getRoles(loginRequest) {
       const headers = new HttpHeaders({

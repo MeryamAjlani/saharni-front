@@ -31,7 +31,7 @@ form{
     margin-top: 10%;
 }
 input{
-    size: 100%;
+    size: 150%;
     padding-left:35px;
 }
 p{
@@ -71,4 +71,7 @@ i{
     position: absolute;
     margin-top: 43px;
     margin-left: 10px;
+}
+.error{
+    color: red;
 }

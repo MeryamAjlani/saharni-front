@@ -15,7 +15,7 @@
                     <button class="nav-link" (click)="open(content)">Register</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" href="blog.html">Sign in</button>
+                    <button class="nav-link" (click)="open(content1)">Sign in</button>
                 </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
@@ -34,28 +34,95 @@
 
     <ng-template class="modal" #content let-modal>
         <div class="modal-header">
-         <div > </div>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-group" #registration="ngForm">
-            <h4 class="modal-title" id="modal-basic-title">Registration</h4>
+          <form class="form-group" #signin="ngForm" (ngSubmit)="login(signin)">
+            <h4 class="modal-title" id="modal-basic-title">Login</h4>
               <div class="field"> 
                   <label><i class="fas fa-envelope"></i> Email :</label>
                    <input class="form-control" name="email" 
                    required
-                   ngModel>
+                   email
+                   ngModel
+                   #email="ngModel">
+                 <span class="error" *ngIf="!email.valid && email.touched">Please enter a valid email !</span>
              </div>
       <div class="field">
           <label> <i class="fas fa-key"></i>Password :</label>
-        <input  class="form-control" name="password" 
+        <input type="password"  class="form-control" name="password" 
         required
+        minlength=8
+        #password="ngModel"
         ngModel>
+        <span class="error" *ngIf="!password.valid && password.touched">Invalid Password !</span>
       </div>
       <p>Forgot password?</p>
-      <button type="submit" class="submit btn btn-primary" >Register </button>
+      <button type="submit" class="submit btn btn-primary" >Sign In </button>
+          </form>
+        </div>
+      </ng-template>
+
+
+
+      <ng-template class="modal" #content1 let-modal>
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <div class="modal-body">
+
+          <form class="form-group" #signup="ngForm" (ngSubmit)="register(signup)">
+            <h4 class="modal-title" id="modal-basic-title">Register :</h4>
+            <div class="field"> 
+                <label><i class="fas fa-address-card"></i> First Name :</label>
+                 <input class="form-control" name="fname" 
+                 required
+                 minlength=8
+                 ngModel
+                 #fname="ngModel">
+               <span class="error" *ngIf="!fname.valid && fname.touched">Please enter a valid First Name !</span>
+           </div>
+           <div class="field"> 
+            <label><i class="fas fa-id-card-alt"></i> Last Name :</label>
+             <input class="form-control" name="lname" 
+             required
+             minlength=8
+             ngModel
+             #lname="ngModel">
+           <span class="error" *ngIf="!lname.valid && lname.touched">Please enter a valid Last Name !</span>
+       </div>
+              <div class="field"> 
+                  <label><i class="fas fa-envelope"></i> Email :</label>
+                   <input class="form-control" name="email" 
+                   required
+                   email
+                   ngModel
+                   #email="ngModel">
+                 <span class="error" *ngIf="!email.valid && email.touched">Please enter a valid email !</span>
+             </div>
+      <div class="field">
+          <label> <i class="fas fa-key"></i>Password :</label>
+        <input type="password"  class="form-control" name="password" 
+        required
+        minlength=8
+        #password="ngModel"
+        ngModel>
+        <span class="error" *ngIf="!password.valid && password.touched">Invalid Password !</span>
+      </div>
+      <div class="field">
+        <label> <i class="fas fa-check"></i>Confirm Password :</label>
+      <input type="password"  class="form-control" name="confirm" 
+      required
+      minlength=8
+      #confirm="ngModel"
+      ngModel>
+      <span class="error" *ngIf="!confirm.valid && confirm.touched && confirm.value==password.value">Passwords don't match !{{confirm.value}}</span>
+    </div>
+      <button type="submit" class="submit btn btn-primary" >Sign In </button>
           </form>
         </div>
       </ng-template>

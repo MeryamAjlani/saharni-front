@@ -9,7 +9,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { TeamComponent } from './Components/team/team.component';
 import { PartiesComponent } from './Components/parties/parties.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule, NgForm } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
