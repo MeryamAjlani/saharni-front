@@ -43,24 +43,24 @@
             <h4 class="modal-title" id="modal-basic-title">Login</h4>
               <div class="field"> 
                   <label><i class="fas fa-envelope"></i> Email :</label>
-                   <input class="form-control" name="email" 
+                   <input class="form-control" name="email" placeholder="Email.." [ngClass]="{'is-invalid':  !email.valid && email.touched}"
                    required
                    email
                    ngModel
                    #email="ngModel">
-                 <span class="error" *ngIf="!email.valid && email.touched">Please enter a valid email !</span>
+                 <div class="invalid-feedback" *ngIf="!email.valid && email.touched">Please enter a valid email !</div>
              </div>
-      <div class="field">
+    <div class="field">
           <label> <i class="fas fa-key"></i>Password :</label>
-        <input type="password"  class="form-control" name="password" 
+      <input type="password"  class="form-control" name="password" placeholder="Password.." [ngClass]="{'is-invalid':  !password.valid && password.touched}"
         required
         minlength=8
         #password="ngModel"
         ngModel>
-        <span class="error" *ngIf="!password.valid && password.touched">Invalid Password !</span>
-      </div>
-      <p>Forgot password?</p>
-      <button type="submit" class="submit btn btn-primary" [disabled]="!password.valid || !email.valid">Sign In </button>
+        <div class="invalid-feedback" *ngIf="!password.valid && password.touched">Invalid Password !</div>
+    </div>
+           <a>Forgot password?</a>
+          <button type="submit" class="submit btn btn-primary" [disabled]="!password.valid || !email.valid">Sign In </button>
           </form>
         </div>
       </ng-template>
@@ -79,25 +79,23 @@
             <h4 class="modal-title" id="modal-basic-title">Register :</h4>
             <div class="field"> 
                 <label><i class="fas fa-address-card"></i> First Name :</label>
-                 <input class="form-control" name="fname" 
+                 <input class="form-control" name="fname" placeholder="First name.."
                  required
-                 minlength=8
                  ngModel
                  #fname="ngModel">
                <span class="error" *ngIf="!fname.valid && fname.touched">Please enter a valid First Name !</span>
            </div>
            <div class="field"> 
             <label><i class="fas fa-id-card-alt"></i> Last Name :</label>
-             <input class="form-control" name="lname" 
+             <input class="form-control" name="lname" placeholder="Last name.."
              required
-             minlength=8
              ngModel
              #lname="ngModel">
            <span class="error" *ngIf="!lname.valid && lname.touched">Please enter a valid Last Name !</span>
        </div>
               <div class="field"> 
                   <label><i class="fas fa-envelope"></i> Email :</label>
-                   <input class="form-control" name="email" 
+                   <input class="form-control" name="email" placeholder="Email.."
                    required
                    email
                    ngModel
@@ -106,7 +104,7 @@
              </div>
       <div class="field">
           <label> <i class="fas fa-key"></i>Password :</label>
-        <input type="password"  class="form-control" name="password" 
+        <input type="password"  class="form-control" name="password" placeholder="Password.."
         required
         minlength=8
         #password="ngModel"
@@ -115,7 +113,7 @@
       </div>
       <div class="field">
         <label> <i class="fas fa-check"></i>Confirm Password :</label>
-      <input type="password"  class="form-control" name="confirm" 
+      <input type="password"  class="form-control" name="confirm" placeholder="Confirm password.."
       required
       minlength=8
       #confirm="ngModel"

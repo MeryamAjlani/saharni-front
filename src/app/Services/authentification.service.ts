@@ -8,17 +8,17 @@ import { Router } from '@angular/router';
 export class AuthentificationService {
 
   constructor(private httpClient:HttpClient, private router : Router) { }
-  private  baseUrl = 'http://localhost:8080/auth/client/';
+  private  baseUrl = 'http://localhost:3000/auth/client/';
   
   
-  // call for authentication backend api with a loginRequest in parameter(username + motDePasse)
+  // call for authentication backend api with a loginRequest in parameter(email + motDePasse)
    authenticate(loginRequest) {    
-    return this.httpClient.post<any>(this.baseUrl+'login/',loginRequest)
+    return this.httpClient.post<any>(this.baseUrl+'login',loginRequest)
   }
 
     // call for authentication backend api with a registerRequest in parameter(email + motDePasse)
     register(registerRequest) {    
-      return this.httpClient.post<any>(this.baseUrl+'register/',registerRequest)
+      return this.httpClient.post<any>(this.baseUrl+'signup',registerRequest)
     }
 
   // call for authentication backend api with a loginRequest in parameter(username + motDePasse)
