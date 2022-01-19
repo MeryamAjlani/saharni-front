@@ -79,48 +79,48 @@
             <h4 class="modal-title" id="modal-basic-title">Register :</h4>
             <div class="field"> 
                 <label><i class="fas fa-address-card"></i> First Name :</label>
-                 <input class="form-control" name="fname" placeholder="First name.."
+                 <input class="form-control" name="fname" placeholder="First name.." [ngClass]="{'is-invalid':  !fname.valid && fname.touched}"
                  required
                  ngModel
                  #fname="ngModel">
-               <span class="error" *ngIf="!fname.valid && fname.touched">Please enter a valid First Name !</span>
+               <div class="invalid-feedback" *ngIf="!fname.valid && fname.touched">Please enter a valid First Name !</div>
            </div>
            <div class="field"> 
             <label><i class="fas fa-id-card-alt"></i> Last Name :</label>
-             <input class="form-control" name="lname" placeholder="Last name.."
+             <input class="form-control" name="lname" placeholder="Last name.." [ngClass]="{'is-invalid':  !lname.valid && lname.touched}"
              required
              ngModel
              #lname="ngModel">
-           <span class="error" *ngIf="!lname.valid && lname.touched">Please enter a valid Last Name !</span>
+           <div class="invalid-feedback" *ngIf="!lname.valid && lname.touched">Please enter a valid Last Name !</div>
        </div>
               <div class="field"> 
                   <label><i class="fas fa-envelope"></i> Email :</label>
-                   <input class="form-control" name="email" placeholder="Email.."
+                   <input class="form-control" name="email" placeholder="Email.." [ngClass]="{'is-invalid':  !email.valid && email.touched}"
                    required
                    email
                    ngModel
                    #email="ngModel">
-                 <span class="error" *ngIf="!email.valid && email.touched">Please enter a valid email !</span>
+                 <div class="invalid-feedback" *ngIf="!email.valid && email.touched">Please enter a valid email !</div>
              </div>
       <div class="field">
           <label> <i class="fas fa-key"></i>Password :</label>
-        <input type="password"  class="form-control" name="password" placeholder="Password.."
+        <input type="password"  class="form-control" name="password" placeholder="Password.." [ngClass]="{'is-invalid':  !password.valid && password.touched}"
         required
         minlength=8
         #password="ngModel"
         ngModel>
-        <span class="error" *ngIf="!password.valid && password.touched">Invalid Password !</span>
+        <div class="invalid-feedback" *ngIf="!password.valid && password.touched">Invalid Password !</div>
       </div>
       <div class="field">
         <label> <i class="fas fa-check"></i>Confirm Password :</label>
-      <input type="password"  class="form-control" name="confirm" placeholder="Confirm password.."
-      required
-      minlength=8
-      #confirm="ngModel"
-      ngModel>
-      <span class="error" 
-      *ngIf="(!confirm.valid && confirm.touched) || (confirm.value != password.value && confirm.touched)">
-      Passwords don't match !</span>
+          <input type="password"  class="form-control" name="confirm" placeholder="Confirm password.." [ngClass]="{'is-invalid':  (!confirm.valid && confirm.touched) || (confirm.value != password.value && confirm.touched)}"
+          required
+          minlength=8
+          #confirm="ngModel"
+          ngModel>
+        <div class="invalid-feedback"
+        *ngIf="(!confirm.valid && confirm.touched) || (confirm.value != password.value && confirm.touched)">
+        Passwords don't match !</div>
     </div>
       <button type="submit" class="submit btn btn-primary" 
       [disabled]="!password.valid || !email.valid || !lname.valid || !fname.valid || !confirm.valid"
