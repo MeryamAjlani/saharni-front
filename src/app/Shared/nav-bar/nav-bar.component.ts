@@ -10,15 +10,15 @@ import { AuthentificationService } from 'src/app/Services/authentification.servi
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private auth:AuthentificationService) {
+  constructor(private modalService: NgbModal, private auth: AuthentificationService) {
 
    }
   closeResult = '';
   ngOnInit(): void {
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered:true , size :'m'}).result.then((result) => {
+  open(content): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true , size : 'm'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -33,39 +33,38 @@ export class NavBarComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  login(form:NgForm): void{
-    if(form.valid){
-     let email = form.value['email']
-     let pass = form.value['password']
+  login(form: NgForm): void{
+    if (form.valid) {
+     const email = form.value.email;
+     const pass = form.value.password;
      this.auth.authenticate({
-       email:email,
-       password:pass
-     }).subscribe(data=>{
-       console.log(data)
+       email,
+       password: pass
+     }).subscribe(data => {
+       console.log(data);
      },
-     err=>{
-       console.log(err)
-     })
+     err => {
+       console.log(err);
+     });
     }
   }
-  register(form:NgForm){
-    console.log(form)
-    if(form.valid){
-      let email = form.value['email']
-      let pass = form.value['password']
-      let fname=form.value['fname']
-      let lname=form.value['lname']
+  register(form: NgForm): void {
+    if (form.valid) {
+      const email = form.value.email;
+      const pass = form.value.password;
+      const fname = form.value.fname;
+      const lname = form.value.lname;
       this.auth.register({
-        email:email,
-        password:pass,
-        firstName:fname,
-        lastName:lname,
-      }).subscribe(data=>{
-        console.log(data)
+        email,
+        password: pass,
+        firstName: fname,
+        lastName: lname,
+      }).subscribe(data => {
+        console.log(data);
       },
-      err=>{
-        console.log(err)
-      })
+      err => {
+        console.log(err);
+      });
      }
   }
 
