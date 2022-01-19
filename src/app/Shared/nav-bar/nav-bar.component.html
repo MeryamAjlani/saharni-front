@@ -12,10 +12,10 @@
                     <button class="nav-link" href="/">Home</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" (click)="open(content)">Register</button>
+                    <button class="nav-link" (click)="open(registerModal)">Register</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" (click)="open(content1)">Sign in</button>
+                    <button class="nav-link" (click)="open(loginModal)">Sign in</button>
                 </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
@@ -32,7 +32,7 @@
     </div>
 </nav>
 
-    <ng-template class="modal" #content let-modal>
+    <ng-template class="modal" #loginModal let-modal>
         <div class="modal-header">
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
@@ -60,14 +60,14 @@
         <span class="error" *ngIf="!password.valid && password.touched">Invalid Password !</span>
       </div>
       <p>Forgot password?</p>
-      <button type="submit" class="submit btn btn-primary" >Sign In </button>
+      <button type="submit" class="submit btn btn-primary" [disabled]="!password.valid || !email.valid">Sign In </button>
           </form>
         </div>
       </ng-template>
 
 
 
-      <ng-template class="modal" #content1 let-modal>
+      <ng-template class="modal" #registerModal let-modal>
         <div class="modal-header">
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
@@ -120,9 +120,13 @@
       minlength=8
       #confirm="ngModel"
       ngModel>
-      <span class="error" *ngIf="!confirm.valid && confirm.touched && confirm.value==password.value">Passwords don't match !{{confirm.value}}</span>
+      <span class="error" 
+      *ngIf="(!confirm.valid && confirm.touched) || (confirm.value != password.value && confirm.touched)">
+      Passwords don't match !{{confirm.value}}</span>
     </div>
-      <button type="submit" class="submit btn btn-primary" >Sign In </button>
+      <button type="submit" class="submit btn btn-primary" 
+      [disabled]="!password.valid || !email.valid || !lname.valid || !fname.valid || !confirm.valid"
+      >Sign In </button>
           </form>
         </div>
       </ng-template>
