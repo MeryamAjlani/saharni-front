@@ -55,7 +55,7 @@ export class NavBarComponent implements OnInit {
       const fname = form.value.fname;
       const lname = form.value.lname;
       this.auth.register({
-        email,
+        email:email,
         password: pass,
         firstName: fname,
         lastName: lname,

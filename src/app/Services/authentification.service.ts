@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class AuthentificationService {
 
   constructor(private httpClient:HttpClient, private router : Router) { }
-  private  baseUrl = 'http://localhost:8080/auth/';
+  private  baseUrl = 'http://localhost:8080/auth/client/';
   
   
   // call for authentication backend api with a loginRequest in parameter(username + motDePasse)

@@ -122,7 +122,7 @@
       ngModel>
       <span class="error" 
       *ngIf="(!confirm.valid && confirm.touched) || (confirm.value != password.value && confirm.touched)">
-      Passwords don't match !{{confirm.value}}</span>
+      Passwords don't match !</span>
     </div>
       <button type="submit" class="submit btn btn-primary" 
       [disabled]="!password.valid || !email.valid || !lname.valid || !fname.valid || !confirm.valid"
