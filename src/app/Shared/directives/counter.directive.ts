@@ -14,11 +14,20 @@ export class CounterDirective implements OnChanges {
 
     async counter(endValue): Promise<void> {
         let count = 0;
-        const step = endValue * 0.025;
+        const initialStep = endValue * 0.1;
+        let step = initialStep;
 
         while (count < endValue) {
-            await new Promise(resolve => setTimeout(resolve, 10));
+            let progress = count / (endValue * 1.01);
+            await new Promise(resolve => setTimeout(resolve, 10 + (progress ** 2) * 50));
+            step = initialStep * (1 - progress);
+            if (step < 1) {
+                step = 1;
+            }
             count = count + step;
+            if (count > endValue) {
+                count = endValue;
+            }
             this.el.nativeElement.innerHTML = Math.floor(count);
         }
 
