@@ -13,6 +13,7 @@ import { FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './Components/clients/clients.component';
+import { CounterDirective } from './Shared/directives/counter.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ClientsComponent } from './Components/clients/clients.component';
     FooterComponent,
     TeamComponent,
     PartiesComponent,
-    ClientsComponent
+    ClientsComponent,
+    CounterDirective
   ],
   imports: [
     BrowserModule,
