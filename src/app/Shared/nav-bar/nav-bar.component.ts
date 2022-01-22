@@ -10,12 +10,9 @@ import { AuthentificationService } from 'src/app/Services/authentification.servi
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, private auth: AuthentificationService) {
-
-   }
+  constructor(private modalService: NgbModal, private auth: AuthentificationService) {}
   closeResult = '';
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   open(content): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true , size : 'm'}).result.then((result) => {
@@ -38,7 +35,7 @@ export class NavBarComponent implements OnInit {
      const email = form.value.email;
      const pass = form.value.password;
      this.auth.authenticate({
-       email,
+       email: email,
        password: pass
      }).subscribe(data => {
        console.log(data);
