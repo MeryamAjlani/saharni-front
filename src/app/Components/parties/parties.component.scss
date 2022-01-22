@@ -42,7 +42,12 @@ h2{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-bottom: 2%;
 }
+.fact{
+    background: linear-gradient(rgba(255, 255, 255, 0.952), rgba(12, 2, 20, 0.5)), url("../../../assets/wall.jpg");
+    background-size:cover;
+}
 .pres{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,4 +65,26 @@ h2{
 #features{
     padding-top: 2%;
     padding-bottom: 5%;
+}
+.counter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.counter p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+}
+.num{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+.counter span{
+font-size: 80px;
+color: rgb(105, 14, 126);
+font-weight: bold;
 }
