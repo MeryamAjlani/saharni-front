@@ -13,6 +13,7 @@ import { FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CounterDirective } from './Shared/directives/counter.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AccueilComponent,
     FooterComponent,
     TeamComponent,
-    PartiesComponent
+    PartiesComponent,
+    CounterDirective
   ],
   imports: [
     BrowserModule,
