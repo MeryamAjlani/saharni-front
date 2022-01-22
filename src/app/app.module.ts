@@ -11,6 +11,7 @@ import { PartiesComponent } from './Components/parties/parties.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CounterDirective } from './Shared/directives/counter.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AccueilComponent,
     FooterComponent,
     TeamComponent,
-    PartiesComponent
+    PartiesComponent,
+    CounterDirective
   ],
   imports: [
     BrowserModule,
