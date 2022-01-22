@@ -10,9 +10,9 @@ import { TeamComponent } from './Components/team/team.component';
 import { PartiesComponent } from './Components/parties/parties.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule} from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClientsComponent } from './Components/clients/clients.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AccueilComponent,
     FooterComponent,
     TeamComponent,
-    PartiesComponent
+    PartiesComponent,
+    ClientsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule,
     BrowserAnimationsModule
   ],
   providers: [],
