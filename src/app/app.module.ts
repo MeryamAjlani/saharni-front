@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './Components/clients/clients.component';
 import { CounterDirective } from './Shared/directives/counter.directive';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CounterDirective } from './Shared/directives/counter.directive';
     TeamComponent,
     PartiesComponent,
     ClientsComponent,
-    CounterDirective
+    CounterDirective,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
