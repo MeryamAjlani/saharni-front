@@ -18,7 +18,7 @@ export class CounterDirective implements OnChanges {
         let step = initialStep;
 
         while (count < endValue) {
-            let progress = count / (endValue * 1.01);
+            const progress = count / (endValue * 1.01);
             await new Promise(resolve => setTimeout(resolve, 10 + (progress ** 2) * 50));
             step = initialStep * (1 - progress);
             if (step < 1) {
