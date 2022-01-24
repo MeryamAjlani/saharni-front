@@ -11,12 +11,18 @@
                 <li class="nav-item">
                     <button class="nav-link" href="/">Home</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!user">
                     <button class="nav-link" (click)="open(registerModal)">Register</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="user">
+                  <button class="nav-link" (click)="open(registerModal)">{{user.firstName}} {{user.lastName}}</button>
+                </li>
+                <li class="nav-item" *ngIf="!user">
                     <button class="nav-link" (click)="open(loginModal)">Sign in</button>
                 </li>
+                <li class="nav-item" *ngIf="user">
+                  <button class="nav-link" (click)="logout()">Logout</button>
+              </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
                         <span class="lnr lnr-magnifier"></span>
@@ -60,7 +66,10 @@
         <div class="invalid-feedback" *ngIf="!password.valid && password.touched">Invalid Password !</div>
     </div>
            <a>Forgot password?</a>
-          <button type="submit" class="submit btn btn-primary" [disabled]="!password.valid || !email.valid">Sign In </button>
+          <button type="submit" class="submit btn btn-primary" [disabled]="!password.valid || !email.valid">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+            <span *ngIf="!loading">Sign In</span>
+          </button>
           </form>
         </div>
       </ng-template>
@@ -124,9 +133,10 @@
     </div>
       <button type="submit" class="submit btn btn-primary" 
       [disabled]="!password.valid || !email.valid || !lname.valid || !fname.valid || !confirm.valid"
-      >Sign In </button>
+      >
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+      <span *ngIf="!loading">Sign In</span>
+       </button>
           </form>
         </div>
-      </ng-template>
-
   

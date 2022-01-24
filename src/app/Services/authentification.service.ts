@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
-
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) {}
   private  baseUrl = 'http://localhost:3000/auth/client/';
+
 
 
   // call for authentication backend api with a loginRequest in parameter(email + motDePasse)
   authenticate(loginRequest): Observable<any> {
-    return this.httpClient.post<any>(this.baseUrl  + 'login', loginRequest);
+    return this.httpClient.post<any>(this.baseUrl  + 'login', loginRequest).pipe(tap(data => {
+      localStorage.setItem('userData', JSON.stringify(data.client));
+      localStorage.setItem('token', JSON.stringify(data.accessToken));
+    }));
   }
 
     // call for authentication backend api with a registerRequest in parameter(email + motDePasse)
@@ -32,18 +36,24 @@ export class AuthentificationService {
   }
 
   isUserLoggedIn(): boolean {
-    const user = localStorage.getItem('email');
+    const user = JSON.parse(localStorage.getItem('userData'));
 
     // return true if user not null
     return !(user === null);
   }
 
   logOut(): void {
-    localStorage.removeItem('email');
     localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('id');
-    localStorage.removeItem('user');
+    localStorage.removeItem('userData');
+  }
 
+  getUser(): boolean {
+    const user = JSON.parse(localStorage.getItem('userData'));
+    if (user) {
+      return user;
+    }
+    else {
+      return null;
+    }
   }
 }
