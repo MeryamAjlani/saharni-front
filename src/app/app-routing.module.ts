@@ -5,18 +5,11 @@ import { ClientLayoutComponent } from './Layouts/client-layout/client-layout.com
 
 const routes: Routes = [
   {path : 'accueil' , component: AccueilComponent},
-  {path: '**' , component: AccueilComponent},
   {
     path: 'client',
-    component: ClientLayoutComponent,
-    children: [
-      {
-        path: "",
-        loadChildren:
-        ()=> import('./Layouts/client-layout/client-layout.module').then(m=> m.ClientLayoutModule)
-      }
-    ]
-  }
+    loadChildren: () => import('./Layouts/client-layout/client-layout.module').then(m => m.ClientLayoutModule)
+  },
+  {path: '**' , component: AccueilComponent},
 ];
 
 @NgModule({
