@@ -1,3 +1,36 @@
-#testimonial{
-    background-size: no-repeat;
+
+.team{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.member img{
+    float: left;
+    width: 180px;
+    height: 180px;
+    object-fit: cover; 
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.heading-section{
+    padding-bottom: 5%;
+}
+.member{
+    padding: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.member p{
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(86, 12, 116);
+    font-weight: bold;
+}
+section{
+    background-repeat: no-repeat;
+    background-size: cover;
 }
