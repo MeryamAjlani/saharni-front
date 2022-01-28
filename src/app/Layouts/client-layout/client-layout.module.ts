@@ -14,7 +14,7 @@ import { ClientLayoutComponent } from './client-layout.component';
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(ClientLayoutRoutes),
     ClientLayoutRoutingModule
   ]
 })
