@@ -94,4 +94,8 @@ export class NavBarComponent implements OnInit {
       return this.auth.isUserLoggedIn();
     }
 
+    gotoProfile(): void {
+      this.router.navigate(['client', 'profile']);
+    }
+
 }
