@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Models/user.model';
+import { AuthentificationService } from 'src/app/Services/authentification.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,21 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthentificationService, private router: Router) { }
 
-  user = {
-    fname: 'Youssef',
-    lname: 'Jerbi',
-    email: 'youssefjerbi@gmail.com',
-    lastReservations: [
-      {bar: 'Billionaire', date: '2020-20-11'},
-      {bar: 'Coachella', date: '2021-07-09'},
-      {bar: 'Tomorrowland', date: '2022-05-01'}
-    ],
-    type: 'Client'
-  };
-
+  user: User;
   ngOnInit(): void {
+    this.user = this.authService.getUser();
+    if (!this.user) {
+      this.router.navigate(['not-found']);
+    }
   }
 
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { User } from '../Models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,10 +48,10 @@ export class AuthentificationService {
     localStorage.removeItem('userData');
   }
 
-  getUser(): boolean {
+  getUser(): User {
     const user = JSON.parse(localStorage.getItem('userData'));
     if (user) {
-      return user;
+      return new User(user.firstName, user.lastName, user.email, user.role, user.createdAt, user.updatedAt);
     }
     else {
       return null;
