@@ -14,6 +14,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './Components/clients/clients.component';
 import { CounterDirective } from './Shared/directives/counter.directive';
+import { ClientLayoutModule } from './Layouts/client-layout/client-layout.module';
+import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
@@ -26,15 +28,16 @@ import { ProfileComponent } from './Components/profile/profile.component';
     PartiesComponent,
     ClientsComponent,
     CounterDirective,
-    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     NgbModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ClientLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
