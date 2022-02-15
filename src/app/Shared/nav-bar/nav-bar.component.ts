@@ -50,7 +50,7 @@ export class NavBarComponent implements OnInit {
             console.log(this.loading);
             this.modalService.dismissAll();
             this.user = this.auth.getUser();
-            this.router.navigate(['/']);
+            this.gotoProfile()
         },
         err => {
           this.loading = !this.loading;
@@ -74,7 +74,7 @@ export class NavBarComponent implements OnInit {
           this.loading = !this.loading;
           console.log(data);
           this.modalService.dismissAll();
-          this.router.navigate(['/']);
+          this.gotoProfile()
           console.log(data);
         },
         err => {
