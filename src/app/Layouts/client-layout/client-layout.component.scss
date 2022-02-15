@@ -68,10 +68,11 @@ a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     background: #62077e;
+    text-align: center;
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+   
     border-bottom: 1px solid #62077e;
 }
 
@@ -182,4 +183,8 @@ img{
 }
 ul{
     margin-top: 10%;
+}
+.saharni{
+    height: 80px;
+    width: 80px;
 }

@@ -1,25 +1,50 @@
 <div class="wrapper">
+  
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-           
+                <img class="saharni" src="../../../assets/LogoSansEcriture.png">
         </div>
 
         <ul class="list-unstyled components">
-            <p class="name">My Profile</p>
+           
+            <p class="name">Welcome Sahar !</p>
             <li >
-         <a href="#homeSubmenu" class="item"> <i class="fa fa-user"></i> Profile</a>
+         <a [routerLink]="['./profile']" class="item"> <i class="fa fa-user"></i> Profile</a>
             </li>
             <li>
-                <a href="#" class="item"><i class="fa fa-newspaper"></i> Feed</a>
+            <a [routerLink]="['./feed']" class="item"><i class="fa fa-newspaper"></i> Feed</a>
             </li>
             <li class="list-unstyled">
-                <a href="#" class="item"><i class="fas fa-ticket-alt"></i> Reservations</a>
+                <a href="#" class="item disabled"><i class="fas fa-ticket-alt"></i> Reservations</a>
             </li>
-            <li class="list-unstyled">
-                <a href="#" class="item"><i class="fa fa-sign-out-alt"></i> Log out</a>
+            <li (click)="logout()" class="list-unstyled">
+                <a   class="item "><i class="fa fa-sign-out-alt"></i> Log out</a>
             </li>
         </ul>
     </nav>
-<router-outlet></router-outlet>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="jumbotron d-flex align-items-center overlay">
+        <div class="rectangle-1"></div>
+        <div class="rectangle-2"></div>
+        <div class="rectangle-transparent-1"></div>
+        <div class="rectangle-transparent-2"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
+        <div class="triangle triangle-1">
+            <img src="assets/img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-2">
+            <img src="assets/img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-3">
+            <img src="assets/img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-4">
+            <img src="assets/img/obj_triangle.png" alt="">
+        </div>
+    </div>
 </div>

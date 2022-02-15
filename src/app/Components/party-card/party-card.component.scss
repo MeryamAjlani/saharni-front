@@ -154,13 +154,24 @@ h1
   display: block
 }
 
+.ticket
+{
+  background-color: #da70d6
+}
+.SoldOut
+{
+  background-color: #00c0f0
+}
+.Cancel
+{
+  background-color: #f80677
+}
 .card-cont a
 {
   display: block;
   text-decoration: none;
   width: 80px;
   height: 30px;
-  background-color: #D8DDE0;
   color: #fff;
   text-align: center;
   line-height: 30px;
@@ -170,10 +181,7 @@ h1
   bottom: 10px
 }
 
-.row:last-child .card:first-child .card-cont a
-{
-  background-color: #da70d6
-}
+
 
 @media screen and (max-width: 860px)
 {
