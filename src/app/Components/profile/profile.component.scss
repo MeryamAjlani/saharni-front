@@ -336,10 +336,22 @@ a.article:hover {
         display: none;
     }
 }
+.item{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+i{
+    padding-right: 2%;
+}
 img{
     width: 150px;
 }
 .name{
     margin-left: 4%;
     font-weight: bold;
+}
+ul{
+    margin-top: 10%;
 }
