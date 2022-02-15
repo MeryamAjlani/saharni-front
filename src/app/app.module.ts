@@ -16,7 +16,7 @@ import { ClientsComponent } from './Components/clients/clients.component';
 import { CounterDirective } from './Shared/directives/counter.directive';
 import { ClientLayoutModule } from './Layouts/client-layout/client-layout.module';
 import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './Components/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     PartiesComponent,
     ClientsComponent,
     CounterDirective,
+   
   ],
   imports: [
     BrowserModule,

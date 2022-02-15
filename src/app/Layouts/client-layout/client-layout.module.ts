@@ -4,6 +4,8 @@ import { ProfileComponent } from 'src/app/Components/profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { ClientLayoutRoutes, ClientLayoutRoutingModule } from './client-layout-routing.module';
 import { ClientLayoutComponent } from './client-layout.component';
+import { PartyCardComponent } from 'src/app/Components/party-card/party-card.component';
+import { FeedComponent } from 'src/app/Components/feed/feed.component';
 
 
 
@@ -11,6 +13,8 @@ import { ClientLayoutComponent } from './client-layout.component';
   declarations: [
     ClientLayoutComponent,
     ProfileComponent,
+    PartyCardComponent,
+    FeedComponent
   ],
   imports: [
     CommonModule,
